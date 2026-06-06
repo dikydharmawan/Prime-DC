@@ -1,0 +1,350 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.loading {
+  padding: var(--spacing-4);
+  color: var(--text-secondary);
+}
+
+.errorAlert {
+  padding: var(--spacing-4);
+  color: var(--accent-red);
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.success {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: var(--status-in-stock);
+  border-left: 4px solid var(--status-in-stock);
+}
+
+.error {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: var(--accent-red);
+  border-left: 4px solid var(--accent-red);
+}
+
+/* Detail View */
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-5);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detailActions, .adminActions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-2);
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.badge {
+  background-color: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.price {
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  margin-bottom: var(--spacing-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.dataItem label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-1);
+}
+
+.dataItem p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.mapsSection {
+  margin-top: var(--spacing-4);
+}
+
+/* Form View */
+.formHeader {
+  margin-bottom: var(--spacing-4);
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.dirtyDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3);
+}
+
+.twoCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3);
+  grid-column: 1 / -1; /* spans full width if in a grid, adjust based on layout */
+}
+
+@media (min-width: 600px) {
+  .twoCols {
+    grid-column: auto;
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.formActions {
+  margin-top: var(--spacing-5);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-4);
+  position: sticky;
+  bottom: -16px;
+  background-color: var(--bg-secondary);
+  padding-bottom: var(--spacing-4);
+}
+
+.detailImageContainer {
+  width: 100%;
+  max-height: 350px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: var(--spacing-4);
+  border: 1px solid var(--border-color);
+}
+
+.detailImage {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.imagePreviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  align-items: flex-start;
+}
+
+.imagePreview {
+  max-width: 200px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.removeImageBtn {
+  background-color: transparent;
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  padding: 4px 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.removeImageBtn:hover {
+  background-color: var(--status-sold-out-bg);
+}
+
+.uploadBox {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: var(--spacing-4);
+  text-align: center;
+  background-color: var(--bg-secondary);
+  transition: border-color 0.2s ease;
+}
+
+.uploadBox:hover {
+  border-color: var(--accent-gold);
+}
+
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.uploadLabel {
+  display: block;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Modal Confirmation */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modalIcon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(179, 58, 58, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.modalText {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+}
+
+.modalActions button {
+  flex: 1;
+  padding: 12px;
+}

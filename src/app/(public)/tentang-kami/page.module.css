@@ -1,0 +1,164 @@
+.page {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+}
+
+.hero {
+  background-color: var(--primary-black);
+  color: var(--neutral-white);
+  padding: 140px 0 80px 0;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+.heroContainer {
+  max-width: 800px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-3);
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #CCCCCC;
+}
+
+.contentContainer {
+  padding: 80px var(--spacing-3);
+}
+
+.section {
+  margin-bottom: 80px;
+}
+
+.section2Col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-4);
+  color: var(--text-primary);
+}
+
+.textContent p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-3);
+}
+
+.visualContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quoteBlock {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-5);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 0 8px 8px 0;
+}
+
+.quoteText {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+  line-height: 1.6;
+}
+
+.quoteAuthor {
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin: 0;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0 0 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-5);
+}
+
+.card {
+  background-color: var(--bg-input);
+  padding: var(--spacing-5);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--accent-gold);
+}
+
+.iconWrapper {
+  color: var(--accent-gold);
+  margin-bottom: var(--spacing-3);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-3);
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.centerHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-5);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-4);
+}
+
+.valueItem {
+  text-align: center;
+  padding: var(--spacing-4);
+}
+
+.valueIcon {
+  color: var(--accent-gold);
+  margin-bottom: var(--spacing-3);
+}
+
+.valueItem h4 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-2);
+}
+
+.valueItem p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .section2Col, .grid, .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}

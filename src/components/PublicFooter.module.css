@@ -1,0 +1,116 @@
+.footer {
+  background-color: rgba(15, 15, 15, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--neutral-white);
+  padding-top: var(--spacing-6);
+  margin-top: auto;
+  border-top: 4px solid var(--accent-gold);
+  position: relative;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--spacing-5);
+  margin-bottom: var(--spacing-5);
+  padding-bottom: var(--spacing-4);
+}
+
+.brand {
+  max-width: 400px;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-3);
+}
+
+.logoText {
+  color: var(--neutral-white);
+}
+
+.logoAccent {
+  color: var(--accent-gold);
+  margin-left: 4px;
+}
+
+.description {
+  color: #B3B3B3;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.linkTitle {
+  color: var(--accent-gold);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-4);
+  position: relative;
+}
+
+.linkTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent-gold);
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: var(--spacing-2);
+}
+
+.link {
+  color: #B3B3B3;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.link:hover {
+  color: var(--accent-gold);
+  transform: translateX(6px);
+}
+
+.contactInfo {
+  color: #B3B3B3;
+  margin-bottom: var(--spacing-3);
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.contactInfo:hover {
+  color: var(--neutral-white);
+}
+
+.bottomBar {
+  background-color: rgba(8, 8, 8, 0.85);
+  padding: var(--spacing-4) 0;
+  text-align: center;
+  color: #777777;
+  font-size: 0.875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .footerContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+  
+  .linkTitle::after {
+    display: none;
+  }
+}

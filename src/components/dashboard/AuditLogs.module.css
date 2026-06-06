@@ -1,0 +1,221 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: var(--spacing-4);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-2);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.goldText {
+  color: var(--accent-gold);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-3);
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.tableRow {
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background-color: var(--bg-secondary);
+}
+
+.timeCell, .agentCell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  white-space: nowrap;
+}
+
+.icon {
+  color: var(--text-secondary);
+}
+
+.actionBadge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.create {
+  background-color: var(--status-in-stock-bg);
+  color: var(--status-in-stock);
+}
+
+.update {
+  background-color: rgba(201, 169, 97, 0.15);
+  color: var(--accent-gold);
+}
+
+.delete {
+  background-color: var(--status-sold-out-bg);
+  color: var(--accent-red);
+}
+
+.entityName {
+  font-weight: 600;
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.centerText {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: var(--spacing-5) !important;
+}
+
+.errorText {
+  text-align: center;
+  color: var(--accent-red);
+  padding: var(--spacing-5) !important;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+  padding: var(--spacing-4);
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  animation: scaleUp 0.3s ease;
+  max-height: 80vh;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--header-bg);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.closeBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.modalContent {
+  padding: var(--spacing-4);
+  overflow-y: auto;
+}
+
+.codeBlock {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-3);
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

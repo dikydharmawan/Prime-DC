@@ -1,0 +1,146 @@
+.page {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+}
+
+.hero {
+  background-color: var(--primary-black);
+  color: var(--neutral-white);
+  padding: 140px 0 80px 0;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+.heroContainer {
+  max-width: 800px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-2);
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #CCCCCC;
+}
+
+.contentContainer {
+  padding: 60px var(--spacing-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-4);
+  color: var(--text-primary);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.infoItem {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: flex-start;
+}
+
+.icon {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.infoItem h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-1);
+}
+
+.infoItem p {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.link {
+  color: var(--accent-gold);
+  font-weight: 600;
+  display: inline-block;
+  margin-top: var(--spacing-1);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 300px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.formSection {
+  background-color: var(--bg-input);
+  padding: var(--spacing-5);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.success {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: var(--status-in-stock);
+  border-left: 4px solid var(--status-in-stock);
+}
+
+.error {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: var(--accent-red);
+  border-left: 4px solid var(--accent-red);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
