@@ -1,0 +1,175 @@
+.layout {
+  min-height: 100vh;
+  background: 
+    linear-gradient(-45deg, rgba(12, 12, 12, 0.75), rgba(20, 20, 20, 0.8), rgba(24, 21, 16, 0.75), rgba(20, 20, 20, 0.8)),
+    url('/assets/luxury_black_marble.png');
+  background-size: 400% 400%, 600px 600px;
+  background-repeat: no-repeat, repeat;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.headerContainer {
+  padding: 0 var(--spacing-4);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.brandLogo {
+  border-radius: 50%;
+  border: 1px solid var(--accent-gold);
+}
+
+.brandText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.iconButton {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #D4D4D4;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.iconButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border-color: var(--accent-gold);
+}
+
+.profileDropdown {
+  position: relative;
+}
+
+.profileButton {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 12px 4px 4px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: #FFFFFF;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.profileButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-gold);
+}
+
+.avatar {
+  background-color: var(--accent-gold);
+  color: var(--primary-black);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--spacing-2);
+  background-color: #1a1a1a;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  min-width: 150px;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  width: 100%;
+  text-align: left;
+  padding: var(--spacing-2) var(--spacing-3);
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: #FF6B6B;
+  font-weight: 600;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(179, 58, 58, 0.15);
+}
+
+.main {
+  flex: 1;
+  padding: var(--spacing-5) var(--spacing-4);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}

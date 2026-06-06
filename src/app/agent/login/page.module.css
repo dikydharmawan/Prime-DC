@@ -1,0 +1,121 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/assets/luxury_hero_bg.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: var(--spacing-3);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 15, 15, 0.85); /* deep dark cover */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.loginBox {
+  background: rgba(26, 26, 26, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(201, 169, 97, 0.35);
+  z-index: 2;
+  position: relative;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-5);
+}
+
+.logoImg {
+  margin-bottom: var(--spacing-3);
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-1);
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: #D4D4D4;
+  font-size: 0.9rem;
+}
+
+.form {
+  margin-bottom: var(--spacing-4);
+}
+
+.loginBox :global(.form-label) {
+  color: #E6E6E6 !important;
+}
+
+.loginBox :global(.form-input) {
+  background-color: rgba(15, 15, 15, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+.loginBox :global(.form-input:focus) {
+  border-color: var(--accent-gold) !important;
+  box-shadow: 0 0 0 2px rgba(201, 169, 97, 0.2) !important;
+}
+
+.errorAlert {
+  background-color: rgba(179, 58, 58, 0.15);
+  color: #FF7E7E;
+  padding: var(--spacing-3);
+  border-radius: 8px;
+  margin-bottom: var(--spacing-4);
+  font-size: 0.875rem;
+  border: 1px solid var(--accent-red);
+  text-align: center;
+  font-weight: 500;
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-4);
+}
+
+.backLink {
+  color: #B3B3B3;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.backLink:hover {
+  color: var(--accent-gold);
+  transform: translateY(-1px);
+}
