@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  password_hash  String
+  role           String    @default("Admin") // "Admin" or "Superadmin"
+  login_attempts Int       @default(0)
+  locked_until   DateTime?
+  is_active      Boolean   @default(true)
+  properties     Property[]
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  action      String   // "CREATE" | "UPDATE" | "DELETE"
+  entity      String   // "Property" | "User"
+  entityId    String
+  details     String   // JSON string of changes
+  userId      String
+  userEmail   String
+  timestamp   DateTime @default(now())
+}
+
+model Property {
+  id            String    @id @default(uuid())
+  nama_property String
+  group         String?
+  lebar         Float
+  panjang       Float
+  hadap         String    // JSON or comma separated string
+  tipe          String    // "Ruko" | "Villa"
+  tingkat       Float
+  price         Float     // Stored as float to avoid BigInt serialization issues, handles up to 9 quadrillion
+  carport       Boolean
+  status        String    // "In Stock" | "Sold Out"
+  siap          String    // "Siap Huni" | "Siap Kosong" | "Siap Huni Renovasi"
+  maps_link     String?
+  kawasan       String
+  unit          String?
+  image_url     String?
+  
+  created_by    String
+  user          User      @relation(fields: [created_by], references: [id])
+  
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  deleted_at    DateTime? // Soft delete
+}
