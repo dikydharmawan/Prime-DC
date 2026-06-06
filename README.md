@@ -44,10 +44,16 @@ Prime Property (Prime-DC) adalah platform manajemen dan pameran properti eksklus
    ```
    Aplikasi akan berjalan di `http://localhost:3000`.
 
-4. **Kredensial Default Agent**
-   Untuk masuk ke Dashboard Agent, gunakan data berikut pada halaman `/agent/login`:
-   - **Email**: `agent@primeproperty.com`
-   - **Password**: `prime123`
+4. **Kredensial Default**
+   Untuk masuk ke Dashboard Agent, gunakan salah satu akun berikut pada halaman `/agent/login`:
+   
+   **Akun Superadmin**:
+   - **Email**: `superadmin@primeproperty.com`
+   - **Password**: `Password123!`
+   
+   **Akun Admin**:
+   - **Email**: `admin@primeproperty.com`
+   - **Password**: `Password123!`
 
 ### Struktur Navigasi
 - `/` : Beranda publik (Katalog properti utama).
