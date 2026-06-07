@@ -95,11 +95,10 @@
 }
 
 .heroHighlight {
-  background: linear-gradient(135deg, #FFE0A3 0%, #C9A961 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent-gold);
   display: inline-block;
   font-weight: 900;
+  text-shadow: none;
   filter: drop-shadow(0 2px 8px rgba(201, 169, 97, 0.4));
 }
 
