@@ -1,0 +1,153 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.carouselTrack {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: var(--spacing-5);
+  padding-bottom: 20px; /* Space for scrollbar or shadow */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.carouselItem {
+  flex: 0 0 380px; /* Fixed width for items */
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .carouselItem {
+    flex: 0 0 85vw; /* Make it responsive on mobile */
+  }
+}
+
+.propertyCard {
+  background-color: rgba(28, 28, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
+}
+
+.propertyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(201, 169, 97, 0.12), 0 1px 3px rgba(201, 169, 97, 0.08);
+  border-color: var(--accent-gold);
+}
+
+.propertyImageContainer {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+}
+
+.propertyImage {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.propertyCard:hover .propertyImage {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+
+.propertyImagePlaceholder {
+  height: 240px;
+  background: linear-gradient(135deg, #2c2519 0%, #1a1a1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #E6E6E6;
+  gap: var(--spacing-2);
+  transition: all 0.4s ease;
+}
+
+.propertyCard:hover .propertyImagePlaceholder {
+  color: var(--accent-gold);
+}
+
+.propertyContent {
+  padding: var(--spacing-4) var(--spacing-5);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.propertyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-3);
+  gap: var(--spacing-2);
+}
+
+.propertyTitle {
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.propertyCard:hover .propertyTitle {
+  color: var(--accent-gold);
+}
+
+.propertyBadge {
+  background-color: var(--primary-black);
+  color: var(--accent-gold);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--accent-gold);
+  white-space: nowrap;
+}
+
+.propertyPrice {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  margin-bottom: var(--spacing-4);
+  font-family: inherit;
+}
+
+.propertyDetails {
+  display: flex;
+  gap: var(--spacing-3);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--spacing-3);
+  margin-top: auto;
+}
+
+.propertyDetails span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { PrismaClient } from '@prisma/client';
 import { Shield, Star, Home, MapPin } from 'lucide-react';
+import PropertyCarousel from '@/components/PropertyCarousel';
 import styles from './page.module.css';
 
 const prisma = new PrismaClient();
@@ -71,34 +72,7 @@ export default async function LandingPage() {
           </div>
 
           {highlightedProperties.length > 0 ? (
-            <div className={styles.propertyGrid}>
-              {highlightedProperties.map(property => (
-                <Link href={`/properti/${property.id}`} key={property.id} className={styles.propertyCard}>
-                  {property.image_url ? (
-                    <div className={styles.propertyImageContainer}>
-                      <img src={property.image_url} alt={property.nama_property} className={styles.propertyImage} />
-                    </div>
-                  ) : (
-                    <div className={styles.propertyImagePlaceholder}>
-                      <MapPin size={32} color="var(--accent-gold)" />
-                      <span>{property.kawasan}</span>
-                    </div>
-                  )}
-                  <div className={styles.propertyContent}>
-                    <div className={styles.propertyHeader}>
-                      <h3 className={styles.propertyTitle}>{property.nama_property}</h3>
-                      <span className={styles.propertyBadge}>{property.status}</span>
-                    </div>
-                    <p className={styles.propertyPrice}>{formatRupiah(property.price)}</p>
-                    <div className={styles.propertyDetails}>
-                      <span>{property.tipe}</span> • 
-                      <span>{property.lebar} x {property.panjang} m</span> • 
-                      <span>{property.tingkat} Lantai</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <PropertyCarousel properties={highlightedProperties} />
           ) : (
             <div className={styles.emptyState}>
               <Home size={48} color="var(--accent-gold)" opacity={0.5} />
