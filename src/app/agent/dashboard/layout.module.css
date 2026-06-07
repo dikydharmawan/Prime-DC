@@ -173,3 +173,18 @@
   position: relative;
   z-index: 1;
 }
+
+@media (max-width: 768px) {
+  .main {
+    padding: var(--spacing-4) var(--spacing-3);
+  }
+  
+  .headerContainer {
+    padding: 0 var(--spacing-3);
+  }
+  
+  .brandLogo {
+    width: 90px;
+    height: auto;
+  }
+}

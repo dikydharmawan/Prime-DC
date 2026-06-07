@@ -103,9 +103,15 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-4);
   margin-bottom: var(--spacing-5);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .dataItem label {
@@ -148,19 +154,23 @@
 
 .formGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-3);
 }
 
 .twoCols {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-3);
-  grid-column: 1 / -1; /* spans full width if in a grid, adjust based on layout */
+  grid-column: 1 / -1;
 }
 
 @media (min-width: 600px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
   .twoCols {
+    grid-template-columns: 1fr 1fr;
     grid-column: auto;
   }
 }

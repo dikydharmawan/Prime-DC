@@ -365,3 +365,30 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchBox {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .toolbarActions {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .filterToggle {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+}
