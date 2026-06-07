@@ -81,6 +81,15 @@ export default async function PublicPropertyDetailPage({ params }: PropertyPageP
             <h2 className={styles.price}>{formatRupiah(property.price)}</h2>
           </div>
 
+          {property.deskripsi && (
+            <div className={styles.descriptionSection}>
+              <h3 className={styles.sectionTitle}>Deskripsi</h3>
+              <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
+                {property.deskripsi}
+              </p>
+            </div>
+          )}
+
           {/* Specs Grid */}
           <div className={styles.specsSection}>
             <h3 className={styles.sectionTitle}>Spesifikasi Properti</h3>

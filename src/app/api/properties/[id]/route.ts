@@ -55,6 +55,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
       where: { id },
       data: {
         nama_property: body.nama_property,
+        deskripsi: body.deskripsi !== undefined ? body.deskripsi : undefined,
         group: body.group || null,
         lebar: parseFloat(body.lebar),
         panjang: parseFloat(body.panjang),

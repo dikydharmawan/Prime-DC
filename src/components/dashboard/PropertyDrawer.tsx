@@ -29,6 +29,7 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
 
   const [formData, setFormData] = useState({
     nama_property: '',
+    deskripsi: '',
     group: '',
     lebar: '',
     panjang: '',
@@ -52,6 +53,7 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
       const prop = data.data;
       setFormData({
         nama_property: prop.nama_property,
+        deskripsi: prop.deskripsi || '',
         group: prop.group || '',
         lebar: prop.lebar.toString(),
         panjang: prop.panjang.toString(),
@@ -149,7 +151,7 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
         if (addAnother && isNew) {
           // Reset form
           setFormData({
-            nama_property: '', group: '', lebar: '', panjang: '', hadap: [],
+            nama_property: '', deskripsi: '', group: '', lebar: '', panjang: '', hadap: [],
             tipe: 'Ruko', tingkat: '1', price: '', carport: false, status: 'In Stock',
             siap: 'Siap Huni', maps_link: '', kawasan: '', unit: '', image_url: ''
           });
@@ -275,6 +277,13 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
 
             <h2 className={styles.price}>{formatRupiah(data?.data?.price)}</h2>
             
+            {data?.data?.deskripsi && (
+              <div className={styles.dataItem} style={{ marginBottom: '24px' }}>
+                <label>Deskripsi</label>
+                <p style={{ whiteSpace: 'pre-wrap' }}>{data.data.deskripsi}</p>
+              </div>
+            )}
+            
             <div className={styles.grid}>
               <div className={styles.dataItem}>
                 <label>Kawasan</label>
@@ -329,6 +338,11 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
             <div className="form-group">
               <label className="form-label">Nama Properti *</label>
               <input type="text" name="nama_property" value={formData.nama_property} onChange={handleChange} className="form-input" required minLength={3} maxLength={100} />
+            </div>
+
+            <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+              <label className="form-label">Deskripsi</label>
+              <textarea name="deskripsi" value={formData.deskripsi} onChange={handleChange as any} className="form-input" rows={4} placeholder="Jelaskan detail properti..." />
             </div>
             
             <div className="form-group">

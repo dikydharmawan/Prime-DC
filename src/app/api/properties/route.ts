@@ -133,6 +133,7 @@ export async function POST(request: Request) {
     const property = await prisma.property.create({
       data: {
         nama_property: body.nama_property,
+        deskripsi: body.deskripsi || null,
         group: body.group || null,
         lebar: parseFloat(body.lebar),
         panjang: parseFloat(body.panjang),

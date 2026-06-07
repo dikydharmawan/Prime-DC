@@ -35,6 +35,7 @@ model AuditLog {
 model Property {
   id            String    @id @default(uuid())
   nama_property String
+  deskripsi     String?   @db.Text
   group         String?
   lebar         Float
   panjang       Float
