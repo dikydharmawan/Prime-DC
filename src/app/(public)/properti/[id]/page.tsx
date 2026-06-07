@@ -116,7 +116,7 @@ export default async function PublicPropertyDetailPage({ params }: PropertyPageP
               </div>
               <div className={styles.specItem}>
                 <span className={styles.specLabel}>Carport</span>
-                <span className={styles.specValue}>{property.carport ? 'Tersedia' : 'Tidak Ada'}</span>
+                <span className={styles.specValue}>{property.carport > 0 ? `${property.carport} Mobil` : 'Tidak Ada'}</span>
               </div>
               {property.group && (
                 <div className={styles.specItem}>
@@ -133,6 +133,18 @@ export default async function PublicPropertyDetailPage({ params }: PropertyPageP
             </div>
           </div>
 
+          {/* Fasilitas Chips */}
+          {property.fasilitas && (
+            <div className={styles.specsSection}>
+              <h3 className={styles.sectionTitle}>Fasilitas</h3>
+              <div className={styles.fasilitasChips}>
+                {property.fasilitas.split(',').map((f: string, i: number) => (
+                  <span key={i} className={styles.fasilitasChip}>{f.trim()}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Action CTAs */}
           <div className={styles.actionSection}>
             <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ width: '100%', padding: '16px' }}>
@@ -142,8 +154,15 @@ export default async function PublicPropertyDetailPage({ params }: PropertyPageP
               <MessageSquare size={16} /> Kirim Pesan / Inquiry
             </Link>
             {property.maps_link && (
-              <a href={property.maps_link.startsWith('http') ? property.maps_link : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(property.maps_link)}`} target="_blank" rel="noopener noreferrer" className={styles.mapsLink}>
-                <ExternalLink size={14} /> Lihat Lokasi di Google Maps
+              <a href={property.maps_link.startsWith('http') ? property.maps_link : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(property.maps_link)}`} target="_blank" rel="noopener noreferrer" className={styles.mapCard}>
+                <div className={styles.mapCardIcon}>
+                  <MapPin size={24} />
+                </div>
+                <div className={styles.mapCardContent}>
+                  <h4>Lokasi Properti</h4>
+                  <p>Buka peta interaktif untuk melihat rute dan area sekitar.</p>
+                  <span className={styles.mapCardBtn}>Lihat Rute <ExternalLink size={14} /></span>
+                </div>
               </a>
             )}
           </div>

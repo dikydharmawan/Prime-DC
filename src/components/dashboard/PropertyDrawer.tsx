@@ -37,7 +37,8 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
     tipe: 'Ruko',
     tingkat: '1',
     price: '',
-    carport: false,
+    carport: '0',
+    fasilitas: '',
     status: 'In Stock',
     siap: 'Siap Huni',
     maps_link: '',
@@ -61,7 +62,8 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
         tipe: prop.tipe,
         tingkat: prop.tingkat.toString(),
         price: prop.price.toString(),
-        carport: prop.carport,
+        carport: prop.carport.toString(),
+        fasilitas: prop.fasilitas || '',
         status: prop.status,
         siap: prop.siap,
         maps_link: prop.maps_link || '',
@@ -152,7 +154,7 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
           // Reset form
           setFormData({
             nama_property: '', deskripsi: '', group: '', lebar: '', panjang: '', hadap: [],
-            tipe: 'Ruko', tingkat: '1', price: '', carport: false, status: 'In Stock',
+            tipe: 'Ruko', tingkat: '1', price: '', carport: '0', fasilitas: '', status: 'In Stock',
             siap: 'Siap Huni', maps_link: '', kawasan: '', unit: '', image_url: ''
           });
         } else if (isNew) {
@@ -307,11 +309,15 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
               </div>
               <div className={styles.dataItem}>
                 <label>Carport</label>
-                <p>{data?.data?.carport ? 'Ya' : 'Tidak'}</p>
+                <p>{data?.data?.carport > 0 ? `${data.data.carport} Mobil` : 'Tidak Ada'}</p>
               </div>
               <div className={styles.dataItem}>
                 <label>Unit</label>
                 <p>{data?.data?.unit || '-'}</p>
+              </div>
+              <div className={styles.dataItem} style={{ gridColumn: '1 / -1' }}>
+                <label>Fasilitas</label>
+                <p>{data?.data?.fasilitas || '-'}</p>
               </div>
             </div>
 
@@ -386,12 +392,14 @@ export default function PropertyDrawer({ propertyId, userRole, onClose }: Proper
                 <input type="number" name="tingkat" value={formData.tingkat} onChange={handleChange} className="form-input" required step="0.1" min="1" max="10" />
               </div>
               <div className="form-group">
-                <label className="form-label">Carport *</label>
-                <select name="carport" value={formData.carport ? 'true' : 'false'} onChange={(e) => { setIsDirty(true); setFormData(p => ({...p, carport: e.target.value === 'true'})) }} className="form-input">
-                  <option value="true">Ya</option>
-                  <option value="false">Tidak</option>
-                </select>
+                <label className="form-label">Kapasitas Carport (Mobil) *</label>
+                <input type="number" name="carport" value={formData.carport} onChange={handleChange} className="form-input" required min="0" step="1" />
               </div>
+            </div>
+
+            <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+              <label className="form-label">Fasilitas</label>
+              <input type="text" name="fasilitas" value={formData.fasilitas} onChange={handleChange} className="form-input" placeholder="Pisahkan dengan koma, cth: Kolam Renang, CCTV, Smart Home" />
             </div>
 
             <div className="form-group">

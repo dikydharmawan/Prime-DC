@@ -81,7 +81,7 @@ export async function GET(request: Request) {
   }
 
   if (carport && carport !== 'Semua') {
-    where.carport = carport === 'Ya';
+    where.carport = carport === 'Ya' ? { gt: 0 } : 0;
   }
 
   try {
@@ -141,7 +141,8 @@ export async function POST(request: Request) {
         tipe: body.tipe,
         tingkat: parseFloat(body.tingkat),
         price: parseFloat(body.price),
-        carport: Boolean(body.carport),
+        carport: parseInt(body.carport) || 0,
+        fasilitas: body.fasilitas || null,
         status: body.status,
         siap: body.siap,
         maps_link: body.maps_link || null,

@@ -43,7 +43,8 @@ model Property {
   tipe          String    // "Ruko" | "Villa"
   tingkat       Float
   price         Float     // Stored as float to avoid BigInt serialization issues, handles up to 9 quadrillion
-  carport       Boolean
+  carport       Int       @default(0)
+  fasilitas     String?   @db.Text
   status        String    // "In Stock" | "Sold Out"
   siap          String    // "Siap Huni" | "Siap Kosong" | "Siap Huni Renovasi"
   maps_link     String?

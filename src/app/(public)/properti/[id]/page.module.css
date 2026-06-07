@@ -247,6 +247,106 @@
   transform: translateY(-1px);
 }
 
+.descriptionSection {
+  margin-bottom: var(--spacing-5);
+  padding-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.fasilitasChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.fasilitasChip {
+  background-color: rgba(201, 169, 97, 0.1);
+  color: var(--accent-gold);
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.fasilitasChip:hover {
+  background-color: rgba(201, 169, 97, 0.2);
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+.mapCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(28, 28, 28, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 10px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.mapCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 25px rgba(201, 169, 97, 0.15);
+}
+
+.mapCardIcon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  background-color: rgba(201, 169, 97, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  transition: transform 0.4s ease;
+}
+
+.mapCard:hover .mapCardIcon {
+  transform: scale(1.1);
+  background-color: var(--accent-gold);
+  color: var(--primary-black);
+}
+
+.mapCardContent {
+  flex-grow: 1;
+}
+
+.mapCardContent h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.mapCardContent p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.mapCardBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 @media (max-width: 992px) {
   .contentLayout {
     grid-template-columns: 1fr;
