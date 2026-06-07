@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './PropertyCarousel.module.css';
 
 const formatRupiah = (number: number) => {
@@ -61,8 +61,24 @@ export default function PropertyCarousel({ properties }: PropertyCarouselProps) 
     return () => clearInterval(interval);
   }, []);
 
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -404, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 404, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={styles.carouselContainer}>
+      <button className={`${styles.navButton} ${styles.navLeft}`} onClick={scrollLeft} aria-label="Geser Kiri">
+        <ChevronLeft size={24} />
+      </button>
+
       <div className={styles.carouselTrack} ref={scrollRef}>
         {properties.map(property => (
           <div key={property.id} className={styles.carouselItem}>
@@ -93,6 +109,10 @@ export default function PropertyCarousel({ properties }: PropertyCarouselProps) 
           </div>
         ))}
       </div>
+
+      <button className={`${styles.navButton} ${styles.navRight}`} onClick={scrollRight} aria-label="Geser Kanan">
+        <ChevronRight size={24} />
+      </button>
     </div>
   );
 }
