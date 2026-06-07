@@ -1,7 +1,6 @@
+import { put } from '@vercel/blob';
 import { NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
 
 export async function POST(request: Request) {
   const session = await getSession();
@@ -29,33 +28,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Format file tidak didukung. Gunakan JPG, PNG, atau WEBP.' }, { status: 400 });
     }
 
-    // Get file buffer
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Save directory
-    const uploadDir = join(process.cwd(), 'public', 'uploads');
-    
-    // Ensure upload directory exists
-    try {
-      await mkdir(uploadDir, { recursive: true });
-    } catch (err) {
-      // Ignore if directory already exists
-    }
-
     // Unique filename
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
     const extension = file.name.split('.').pop() || 'jpg';
     const filename = `property-${uniqueSuffix}.${extension}`;
-    const filePath = join(uploadDir, filename);
 
-    // Write file
-    await writeFile(filePath, buffer);
+    // Upload to Vercel Blob
+    const blob = await put(filename, file, { access: 'public' });
 
-    const imageUrl = `/uploads/${filename}`;
-    return NextResponse.json({ success: true, imageUrl });
+    return NextResponse.json({ success: true, imageUrl: blob.url });
   } catch (error: any) {
     console.error('Error handling upload:', error);
-    return NextResponse.json({ error: 'Gagal mengunggah gambar.' }, { status: 500 });
+    return NextResponse.json({ error: 'Gagal mengunggah gambar ke cloud.' }, { status: 500 });
   }
 }
