@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import { MapPin, Phone, Mail, MessageSquare } from 'lucide-react';
@@ -8,24 +8,16 @@ import { submitContactForm } from './actions';
 
 function ContactForm() {
   const searchParams = useSearchParams();
+  const properti = searchParams.get('properti');
+  
   const [formData, setFormData] = useState({
     nama: '',
     email: '',
     phone: '',
-    pesan: '',
+    pesan: properti ? `Halo, saya ingin menanyakan lebih detail mengenai properti "${properti}" yang terdaftar di platform Anda.` : '',
   });
   const [status, setStatus] = useState<{ type: 'success' | 'error' | ''; message: string }>({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    const properti = searchParams.get('properti');
-    if (properti) {
-      setFormData(prev => ({
-        ...prev,
-        pesan: `Halo, saya ingin menanyakan lebih detail mengenai properti "${properti}" yang terdaftar di platform Anda.`
-      }));
-    }
-  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +39,7 @@ function ContactForm() {
       } else {
         setStatus({ type: 'error', message: result.error || 'Terjadi kesalahan.' });
       }
-    } catch (error) {
+    } catch {
       setStatus({ type: 'error', message: 'Gagal mengirim pesan.' });
     } finally {
       setIsSubmitting(false);
